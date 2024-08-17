@@ -11,6 +11,9 @@ app.get('/' , (request,response) => {
         data : blog
     });
 });
+app.get('/addBlog' , (request,response) => {
+    response.render('add.ejs');
+})
 
 
 
