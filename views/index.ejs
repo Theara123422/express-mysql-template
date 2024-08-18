@@ -33,8 +33,12 @@
                 <div class="col-6 border border-2 h-auto my-3 p-3">
                     <h5><%= data.title %></h5>
                     <p><%= data.description %></p>
-                    <button class="btn btn-warning">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <a href="/edit/<%= data.id %>">
+                        <button class="btn btn-warning">Edit</button>
+                    </a>
+                    <form action="/removeBlog/<%= data.id %>" method="post">
+                        <button type="submit" class="btn btn-danger mt-4">Delete</button>
+                    </form>
                 </div>
            <% }) %>
         </div>
