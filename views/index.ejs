@@ -24,18 +24,18 @@
 <body>
     <div class="container border border-4 border-danger mt-5 p-5">
         <h1 class="text-center mt-4">Blog Website</h1>
-        <a href="">
-            <button class="btn btn-primary">Add</button>
+        <a href="/blog/addblogpage">
+            <button class="btn btn-primary" >Add</button>
         </a>
         <div class="row h-50 justify-content-between">
             <% data.forEach(data => { %>
                 <div class="col-6 border border-2 h-auto my-3 p-3">
                     <h5><%= data.title %></h5>
-                    <p><%= data.description %>  </p>
+                    <p><%= data.description %></p>
                     <a href="">
                         <button class="btn btn-warning">Edit</button>
                     </a>
-                    <form action="" method="post">
+                    <form action="/blog/removeblog/<%= data.id %>" method="post">
                         <button type="submit" class="btn btn-danger mt-4">Delete</button>
                     </form>
                 </div>
