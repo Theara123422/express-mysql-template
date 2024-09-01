@@ -22,11 +22,11 @@
 </head>
 <body>
     <div class="container mt-4 p-3">
-        <form action="" method="post">
+        <form action="/blog/editblog/<%= data.id %>" method="post">
             <label for="">Title</label>
-            <input type="text" value="" name="title" id="" class="form-control border border-2 my-3" required>
+            <input type="text" value="<%= data.title %>" name="title" id="" class="form-control border border-2 my-3" required>
             <label for="">Description</label>
-            <input type="text" value="" name="desc" id="" class="form-control border border-2 my-3" required>
+            <input type="text" value="<%= data.description %>" name="description" id="" class="form-control border border-2 my-3" required>
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
         <a href="/">

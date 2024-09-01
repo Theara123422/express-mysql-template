@@ -30,4 +30,27 @@ blogRoute.post('/removeblog/:id' , (request,response) => {
         response.redirect('/');
     })
 })
+blogRoute.get('/editblogpage/:id' ,(request,response) => {
+    const { id } = request.params;
+
+    pool.query(`SELECT * FROM blog WHERE id = ?`,id,(error,row) => {
+        if(error) return response.status(500).json({
+            message : "Something went wrong"
+        });
+        response.render('edit.ejs' , {
+            data : row[0]
+        })
+    })
+})
+blogRoute.post('/editblog/:id' ,(request,response) => {
+    const { id } = request.params;
+    const { title,description } = request.body;
+
+    pool.query(`UPDATE blog SET title = ?,description = ? WHERE id = ?`,[title,description,id],(error,result) => {
+        if(error) return response.status(500).json({
+            message : "Something went wrong"
+        });
+        response.redirect('/');
+    });
+});
 export default blogRoute;
